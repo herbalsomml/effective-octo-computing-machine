@@ -51,7 +51,7 @@ jobs:
 
       - name: Send a Message to Telegram About Failed Pushing to DockerHub
         if: ${{ failure() }}
-        uses: appleboy/telegram-action2master
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -145,7 +145,7 @@ jobs:
 
       - name: Send a Message to Telegram About Failed Pushing to DockerHub
         if: ${{ failure() }}
-        uses: appleboy/telegram-action2master
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
