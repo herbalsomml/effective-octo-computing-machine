@@ -1,0 +1,34 @@
+version: '3'
+
+volumes:
+  pg_data:
+  static:
+  media:
+
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+    depends_on:
+      - db
+    image: herbalsomml/webcam_studio_catalog
+    env_file: .env
+    volumes:
+      - static:/app/static
+      - media:/app/media
+
+  gateway:
+    depends_on:
+      - backend
+    image: herbalsomml/webcam_studio_catalog_gateway
+    env_file:
+      - .env
+    ports:
+      - "8000:80"
+    volumes:
+      - static:/static
+      - media:/var/html/media

@@ -1,16 +1,20 @@
 <div class="col-lg-3 col-md-6 mt-3 mb-4 mb-lg-4 d-flex align-items-stretch">
-    <div class="card round-it shadow-sm border-0">
+    <div class="card round-it bg-dark-2 {% if studio.is_it_premium %}premium-shadow  border-yellow{% elif studio.is_it_top %}shadow-lg  border-pink{% else %}shadow-sm border-0{% endif %}">
         <div class="card-body p-4">
             <a href="{% url 'main:studio_detail' slug=studio.slug %}">
                 <img alt="" class="img-fluid cover-43 round-it d-block mx-auto mb-3" src="{{ studio.image.url }}">
             </a>
-            {% if studio.is_it_top == True %}
+            {%if studio.is_it_premium == True %}
+                <div class="vip-studio bg-yellow shadow-lg">
+                    <span>PREMIUM</span>
+                </div>
+            {% elif studio.is_it_top == True %}
                 <div class="vip-studio bg-pink shadow-lg">
                     <span>TOP</span>
                 </div>
             {% endif %}
             <h5>
-                <a href="{% url 'main:studio_detail' slug=studio.slug %}" class="text-dark text-decoration-none">
+                <a href="{% url 'main:studio_detail' slug=studio.slug %}" class="text-light text-decoration-none">
                     {{ studio.name|truncatechars:30 }}
                 </a>
             </h5>
@@ -24,7 +28,7 @@
             </a>
             <div class="card-props">
                 {% for format in studio.format.all %}
-                    <div class="card-prop active">
+                    <div class="card-prop bg-light-blue text-light">
                         <i class="{{ format.icon }} me-1"></i><span>{{ format.name }}</span>
                     </div>
                 {% endfor %}
@@ -32,7 +36,7 @@
             <hr>
             <div class="card-props">
                 {% for gender in studio.gender.all %}
-                    <div class="card-prop active">
+                    <div class="card-prop bg-light-blue text-light">
                         <i class="{{ gender.icon }} me-1"></i><span>{{ gender.name }}</span>
                     </div>
                 {% endfor %}

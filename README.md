@@ -9,56 +9,38 @@ Catalog of webcam studios with search, filtering and display priority
 - Jazzmin
 - Pillow
 - django-bootstrap5
+- postgres
+- docker
+- nginx
+- gunicorn
 
 
 ## 👨🏻‍💻 How to install:
 
-#### 1️. Create Virtual Environment
+#### 1️. Copy .env.example as .env and fill it
+
+#### 2. Run docker-compose.yml
 ```bash
-  python3 -m venv venv
+  docker-compose up --build
 ```
 
-#### 2️. Activate It
-Mac OS \ Linux:
+#### 3. Migrate DB
 ```bash
-  source venv/bin/activate
-```
-Windows:
-```bash
-  source venv/Scripts/activate
+  sudo docker compose -f docker-compose.yml exec backend python manage.py migrate
 ```
 
-#### 3️. Install Requirements
+#### 4. Collect Static
 ```bash
-  pip install -r requirements.txt
+  sudo docker compose -f docker-compose.yml exec backend python manage.py collectstatic
 ```
 
-#### 4. Copy .env.example, rename it to .env and fill with your data
-
-#### 5. Go to website:
+#### 5. Create Superuser
 ```bash
-  cd website
+  sudo docker compose -f docker-compose.yml exec backend python manage.py createsuperuser
 ```
 
-#### 6. Make Migrations
-```bash
-  python manage.py makemigrations
-```
-
-#### 7. Migrate It
-```bash
-  python manage.py migrate
-```
-
-#### 8. Create Superuser
-```bash
-  python manage.py createsuperuser
-```
-
-#### 9. Run Server
-```bash
-  python manage.py runserver
-```
+#### Path to logo and fav icon:
+```website/main/static/assets/img```
 
 ## 💀 Reach Me Here
 [![Telegram](https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/ihatemylifebutiluvmoney)

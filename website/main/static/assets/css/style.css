@@ -20,11 +20,11 @@ h1 {
 }
 
 .bg-purple {
-    background-color: #a29bfe;
+    background-color: #9b59b6;
 }
 
 .bg-green {
-    background-color: #00b894;
+    background-color: #1abc9c
 }
 
 .bg-blue {
@@ -33,6 +33,16 @@ h1 {
 
 .bg-yellow {
     background-color: #fdcb6e;
+}
+
+.border-yellow {
+    border-width: 2px;
+    --bs-border-opacity: 1;
+    border-color: #fdcb6e;
+}
+
+.premium-shadow {
+    box-shadow: 0 .5rem 1rem rgb(253 203 110) !important;
 }
 
 .btn-rounded {
@@ -58,7 +68,6 @@ h1 {
 }
 
 .card-prop {
-    background: #f3f3f4;
     color: #212529;
     border-radius: .32rem;
     font-weight: 500;
@@ -100,15 +109,15 @@ h1 {
     letter-spacing: -.02rem;
     text-transform: uppercase;
     padding: .32rem 1.07rem .32rem .94rem;
-    border-radius: 15px 0;
+    border-radius: 13px 0;
 }
 
 .round-it {
     border-radius: 15px;
 }
 
-.purple-text {
-    color: #a29bfe;
+.text-purple {
+    color: #9b59b6;
 }
 
 .yellow-text {
@@ -116,7 +125,19 @@ h1 {
 }
 
 .green-text {
-    color: #00b894
+    color: #63d7c6
+}
+
+.text-dark-purple {
+    color: #896dbd
+}
+
+.text-blue {
+    color: #0984e3
+}
+
+.bg-dark-purple {
+    background-color: #9b59b6
 }
 
 .green-text:hover {
@@ -145,6 +166,11 @@ a {
     max-height: 200px; /* Ограничиваем высоту */
     overflow-y: auto; /* Добавляем прокрутку */
   }
+
+.dropdown-menu.show {
+    background-color: #1f1f1f;
+    color: #f8f9fa;
+}
 
 .dropdown-toggle-c {
     height: 50px;
@@ -199,6 +225,18 @@ a {
     width: 100%;
 }
 
+.small {
+    font-size: 1em;
+}
+
+.gray {
+    color: #b5bec5;
+}
+
+.no-right-padding {
+    padding-right: 0px;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -223,4 +261,34 @@ a {
     font-size: var(--bs-pagination-font-size);
     text-decoration: none;
     border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
+}
+
+.border-pink {
+    border-width: 2px;
+    --bs-border-opacity: 1;
+    border-color: #fd79a8;
+}
+
+.bg-double-dark {
+    background-color: #101620;
+}
+
+.text-dark-2 {
+    color: #1f1f1f;
+}
+
+.bg-dark-2 {
+    background-color: #1f1f1f;
+}
+
+.bg-dark-3 {
+    background-color: #111111;
+}
+
+.bg-light-blue {
+    background-color: #3498db;
+}
+
+.top-p-10 {
+    padding-top: 10px;
 }

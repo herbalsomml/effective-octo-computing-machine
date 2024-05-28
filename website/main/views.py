@@ -34,16 +34,23 @@ class StudioListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         top_studios_list = self.get_queryset().filter(
             is_it_top=True
         ).annotate(random_order=Random()).order_by('random_order')
+
         usuall_studios_list = self.get_queryset().filter(
-            is_it_top=False
-        ).annotate(random_order=Random()).order_by('random_order')
-        context['premium_studios_list'] = self.get_queryset().filter(
+            is_it_top=False, is_it_premium=False
+        ).annotate(random_order=Random()).order_by('random_order')[:6]
+
+        premium_studio_iist = self.get_queryset().filter(
             is_it_premium=True
         ).annotate(random_order=Random()).order_by('random_order')
+
+        context['premium_studios_list'] = premium_studio_iist
+
         context['all_studios_list'] = list(chain(
+            premium_studio_iist,
             top_studios_list,
             usuall_studios_list
         ))

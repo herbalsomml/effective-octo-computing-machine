@@ -1,5 +1,5 @@
 <div class="col-12 mb-3 mt-5">
-    <div class="card round-it shadow-sm border-0">
+    <div class="card bg-dark text-light round-it shadow-sm border-0">
         {% if studio.is_it_premium %}
         <div class="vip-studio bg-yellow shadow-lg">
             <i class="fa me-1 fa-diamond"></i><span>PREMIUM</span>
@@ -10,36 +10,36 @@
         </div>
         {% endif %}
         <div class="row no-gutters">
-            <div class="col-12 col-md-6 col-lg-6 image-container">
+            <div class="col-12 col-md-5 col-lg-5 image-container">
                 <img alt="Suresh Dasari Card" class="card-img round-it" src="{{ studio.image.url }}">
             </div>
-            <div class="col-12 col-md-6 col-lg-6">
+            <div class="col-12 col-md-7 col-lg-7">
                 <div class="card-body">
-                    <h1 class="card-title">Студия <span class="green-text">{{ studio.name }}</span></h1>
+                    <h1 class="card-title text-light">Студия <span class="text-purple">{{ studio.name }}</span></h1>
                     <hr>
-                    <h5 class="text-dark">Города</h5>
+                    <h5 class="text-light">Города</h5>
                     <div class="card-props">
                         {% for city in studio.cities.all %}
-                        <div class="card-prop active">
+                        <div class="card-prop bg-blue text-light">
                             <i class="icon icon-house"></i><span>{{ city.name }}</span>
                         </div>{% endfor %}
                     </div>
                     <hr>
                     {% if studio.telegram %}
                     <a href="https://t.me/{{ studio.telegram }}" target="_blank">
-                        <button class="btn-little-rounded bg-green text-light"><i class="fa-brands fa-telegram me-1"></i>Telegram
+                        <button class="btn-little-rounded bg-dark-purple text-light"><i class="fa-brands fa-telegram me-1"></i>Telegram
                         </button>
                     </a>
                     {% endif %}
                     {% if studio.website %}
                     <a href="{{ studio.website }}" target="_blank">
-                        <button class="btn-little-rounded mt-2 bg-green text-light"><i class="fa-solid fa-earth-europe me-1"></i>Веб-сайт
+                        <button class="btn-little-rounded mt-2 bg-dark-purple text-light no-right-padding"><i class="fa-solid fa-earth-europe me-1"></i>Веб-сайт
                         </button>
                     </a>
                     {% endif %}
                     {% if studio.phone %}
                     <a href="tel:{{ studio.phone }}">
-                        <button class="btn-little-rounded mt-2 bg-green text-light"><i class="fa-solid fa-phone me-1"></i>+7 999 999 99 99
+                        <button class="btn-little-rounded mt-2 bg-dark-purple text-light"><i class="fa-solid fa-phone me-1"></i>+7 999 999 99 99
                         </button>
                     </a>
                     {% endif %}
