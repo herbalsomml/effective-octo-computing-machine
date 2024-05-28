@@ -134,7 +134,7 @@ jobs:
             sudo docker compose -f docker-compose.production.yml exec backend python manage.py migrate
             sudo docker compose -f docker-compose.production.yml exec backend python manage.py collectstatic
 
-      - name: Send a Message to Telegram About Successful Gateway Pushing to DockerHub
+      - name: Send a Message to Telegram About Successful Deploying to Server
         if: ${{ success() }}
         uses: appleboy/telegram-action@master
         with:
@@ -143,11 +143,11 @@ jobs:
           message: |
             ✅ Каталог вебкам студий успешно запушен на сервер!
 
-      - name: Send a Message to Telegram About Failed Pushing to DockerHub
+      - name: Send a Message to Telegram About Failed Deploying to Server
         if: ${{ failure() }}
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           message: |
-            ❌ Не удалось запушить каталог вебкам студий каталога на DockerHub
+            ❌ Не удалось запушить каталог вебкам студий каталога на сервер
