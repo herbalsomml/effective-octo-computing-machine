@@ -28,7 +28,10 @@ services:
     env_file:
       - .env
     ports:
-      - "8000:80"
+      - "80:80"
+      - "443:443"
     volumes:
       - static:/static
       - media:/var/html/media
+      - /etc/ssl/mycamhub.pem:/etc/ssl/mycamhub.pem
+      - /etc/ssl/mycamhub.key:/etc/ssl/mycamhub.key

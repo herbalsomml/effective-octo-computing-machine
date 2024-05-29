@@ -4,6 +4,10 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
+from io import BytesIO
+from PIL import Image
+from django.core.files.base import ContentFile
+from datetime import datetime
 
 
 class City(models.Model):
@@ -257,6 +261,14 @@ class Studio(models.Model):
             self.when_it_ends = timezone.now() + timedelta(days=30)
         super(Studio, self).save(*args, **kwargs)
 
+        img = Image.open(self.image)
+        webp_io = BytesIO()
+        img.save(webp_io, format='WEBP')
+        webp_content = ContentFile(webp_io.getvalue())
+        webp_filename = f"{self.slug}-{datetime.now().strftime('%Y%m%d-%H%M%S')}.webp"
+        self.image.save(webp_filename, webp_content, save=False)
+        super().save(update_fields=['image'])
+
 
 class MiniAd(models.Model):
     name = models.CharField(
@@ -290,7 +302,35 @@ class MiniAd(models.Model):
     def save(self, *args, **kwargs):
         if self.when_it_ends is None:
             self.when_it_ends = timezone.now() + timedelta(days=30)
-        super(Studio, self).save(*args, **kwargs)
+        super(MiniAd, self).save(*args, **kwargs)
+
+        sm_img = Image.open(self.small_image)
+        md_img = Image.open(self.medium_image)
+        lg_img = Image.open(self.large_image)
+
+        sm_webp_io = BytesIO()
+        md_webp_io = BytesIO()
+        lg_webp_io = BytesIO()
+
+        sm_img.save(sm_webp_io, format='WEBP')
+        md_img.save(md_webp_io, format='WEBP')
+        lg_img.save(lg_webp_io, format='WEBP')
+
+        sm_webp_content = ContentFile(sm_webp_io.getvalue())
+        md_webp_content = ContentFile(md_webp_io.getvalue())
+        lg_webp_content = ContentFile(lg_webp_io.getvalue())
+
+        small_webp_filename = f"{self.name}-{datetime.now().strftime('%Y%m%d-%H%M%S')}-small.webp"
+        medium_webp_filename = f"{self.name}-{datetime.now().strftime('%Y%m%d-%H%M%S')}-medium.webp"
+        large_webp_filename = f"{self.name}-{datetime.now().strftime('%Y%m%d-%H%M%S')}-large.webp"
+
+        self.small_image.save(small_webp_filename, sm_webp_content, save=False)
+        self.medium_image.save(medium_webp_filename, md_webp_content, save=False)
+        self.large_image.save(large_webp_filename, lg_webp_content, save=False)
+
+        super().save(update_fields=['small_image'])
+        super().save(update_fields=['medium_image'])
+        super().save(update_fields=['large_image'])
 
     class Meta:
         verbose_name = 'Мини реклама'

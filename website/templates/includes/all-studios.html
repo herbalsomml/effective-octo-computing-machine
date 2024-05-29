@@ -9,8 +9,11 @@
             {% endfor %}
             {% else %}
             <h3 class="text-start my-4 text-light">Студии не найдены :(</h3>
+            <div class="text-center col-sm-12 col-md-12 col-lg-4 mt-2 mx-auto">
+                <a href="{% url 'main:studio_search' %}">
+                <button type="submit" class="btn-little-rounded text-light bg-dark-purple"><i class="fa me-2 fa-chevron-circle-down"></i>Посмотреть больше студий</i>
+                </button></a>
+            </div>
             {% endif %}
-        </div>
-        <a href="{% url 'main:studio_search' %}" class="d-block text-center"><button class="btn-rounded bg-dark-purple"><i class="fa me-2 fa-chevron-circle-down"></i>Посмотреть больше студий</button></a>
-    </div>
+        </div>    </div>
 </div>
