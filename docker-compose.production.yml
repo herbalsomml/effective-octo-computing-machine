@@ -11,6 +11,9 @@ services:
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
+    networks:
+      vpcbr:
+        ipv4_address: 172.25.0.3
 
   backend:
     depends_on:
@@ -20,6 +23,9 @@ services:
     volumes:
       - static:/app/static
       - media:/app/media
+    networks:
+      vpcbr:
+        ipv4_address: 172.25.0.4
 
   gateway:
     depends_on:
@@ -35,3 +41,13 @@ services:
       - media:/var/html/media
       - /etc/ssl/mycamhub.pem:/etc/ssl/mycamhub.pem
       - /etc/ssl/mycamhub.key:/etc/ssl/mycamhub.key
+    networks:
+      vpcbr:
+        ipv4_address: 172.25.0.5
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
