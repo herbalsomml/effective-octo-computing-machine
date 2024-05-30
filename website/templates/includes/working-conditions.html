@@ -1,71 +1,71 @@
 <div class="col-12 col-lg-6 mt-3">
-    <div class="card round-it bg-dark shadow-sm border-0">
+    <div class="card round-it-15 bg-light-dark shadow-sm border-0">
         <div class="card-body">
             <h3 class="text-light text-center m-3">Условия работы</h3>
             <hr>
             <h5 class="text-light ms-3 me-3">Формат работы</h5>
-            <div class="card-props ms-3 me-3">
+            <div class="studio-props ms-3 me-3">
                 {% for format in studio.format.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ format.icon }} me-1"></i><span>{{ format.name }}</span>
                     </div>
                 {% endfor %}
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Опыт работы</h5>
-            <div class="card-props ms-3 me-3">
+            <div class="studio-props ms-3 me-3">
                 {% for experience in studio.experience.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ experience.icon }} me-1"></i><span>{{ experience.name }}</span>
                     </div>
                 {% endfor %}
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Кого набирают</h5>
-            <div class="card-props ms-3 me-3">
+            <div class="studio-props ms-3 me-3">
                 {% for gender in studio.gender.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ gender.icon }} me-1"></i><span>{{ gender.name }}</span>
                     </div>
                 {% endfor %}
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Знание английского</h5>
-            <div class="card-props ms-3 me-3">
-                <div class="card-prop bg-light-blue text-light">
+            <div class="studio-props ms-3 me-3">
+                <div class="studio-prop bg-blue text-light">
                     <i class="fa-solid fa-language me-1"></i>
                     <span>{% if english == False %} Не требуется {% else %} Требуется {% endif %}</span>
                 </div>
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Возраст</h5>
-            <div class="card-props ms-3 me-3">
-                <div class="card-prop bg-light-blue text-light">
+            <div class="studio-props ms-3 me-3">
+                <div class="studio-prop bg-blue text-light">
                     <i class="fa me-1 fa-heart"></i><span>от {{ studio.min_age }} до {{ studio.max_age }}</span>
                 </div>
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Регулярность выплат</h5>
-            <div class="card-props ms-3 me-3">
+            <div class="studio-props ms-3 me-3">
                 {% for payout in studio.payouts.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ payout.icon }} me-1"></i><span>{{ payout.name }}</span>
                     </div>
                 {% endfor %}
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Смены</h5>
-            <div class="card-props ms-3 me-3">
+            <div class="studio-props ms-3 me-3">
                 {% for shift in studio.shifts.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ shift.icon }} me-1"></i><span>{{ shift.name }}</span>
                     </div>
                 {% endfor %}
             </div>
             <hr>
             <h5 class="text-light ms-3 me-3">Наличие оператора</h5>
-            <div class="card-props ms-3 me-3 mb-3">
-                <div class="card-prop bg-light-blue text-light">
+            <div class="studio-props ms-3 me-3 mb-3">
+                <div class="studio-prop bg-blue text-light">
                     {% if operator == True %}
                         <i class="fa-solid fa-life-ring me-1"></i><span>Есть</span>
                     {% else %}

@@ -1,0 +1,9 @@
+.btn-custom {
+    padding: 0px 25px 0px 25px;
+    color: #ffffff;
+    background-color: #212529;
+    height: 50px;
+    line-height: 1;
+    background-position: center center;
+    border-style: none;
+}

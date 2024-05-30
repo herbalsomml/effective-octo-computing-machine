@@ -1,22 +1,26 @@
 <section>
-  <footer class="text-center text-white bg-dark-2">
+  <footer class="text-center text-white bg-light-dark">
     <div class="container">
       <section>
-        <p class="d-flex mb-0 justify-content-center align-items-center">
-          <a class="mx-2" href="{{ config.CHAT_LINK }}" target="_blank">
-            <button class="m-2 btn-little-rounded text-light bg-dark-purple">
-              <i class="fa-brands me-2 fa-telegram"></i>Чат Telegram
-            </button>
-          </a>
-          <a class="mx-2" href="{{ config.MANAGER_LINK }}" target="_blank">
-            <button class="m-2 btn-little-rounded text-light bg-light-blue">Попасть в каталог
-            </button>
-          </a>
-        </p>
+          <div class="row">
+            <div class="col-md-6 my-md-2 mt-3 mb-1">
+              <a href="{{ config.CHAT_LINK }}" target="_blank">
+                <button class="btn-custom round-it-60 bg-purple w-75">
+                  <i class="fa-brands me-2 fa-telegram"></i>Чат Telegram
+                </button>
+              </a>
+            </div>
+            <div class="col-md-6 my-md-2 mt-1 mb-3">
+              <a href="{{ config.MANAGER_LINK }}" target="_blank">
+                <button class="btn-custom round-it-60 bg-blue w-75">Попасть в каталог
+                </button>
+              </a>
+            </div>
+          </div>
       </section>
     </div>
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © {% now "Y" %} <a class="text-white" href="#">{{ config.SITE_NAME }}</a>
+      © {% now "Y" %} <a class="text-white" href="{% url 'main:index' %}">{{ config.SITE_NAME }}</a>
     </div>
   </footer>
 </section>

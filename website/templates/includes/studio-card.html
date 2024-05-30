@@ -1,15 +1,15 @@
 <div class="col-lg-3 col-md-6 mt-3 mb-4 mb-lg-4 d-flex align-items-stretch">
-    <div class="card round-it bg-dark-2 {% if studio.is_it_premium %}premium-shadow  border-yellow{% elif studio.is_it_top %}shadow-lg  border-pink{% else %}shadow-sm border-0{% endif %}">
-        <div class="card-body p-4">
+    <div class="card round-it-15 bg-light-dark w-100 {% if studio.is_it_premium %}shadow-yellow border-yellow{% elif studio.is_it_top %}shadow-lg  border-pink{% else %}shadow-sm border-0{% endif %}">
+        <div class="card-body p-4 text-start">
             <a href="{% url 'main:studio_detail' slug=studio.slug %}">
-                <img alt="" class="img-fluid cover-43 round-it d-block mx-auto mb-3" src="{{ studio.image.url }}">
+                <img alt="Studio Image" class="img-fluid img-cover-43 round-it-15 d-block mx-auto mb-3 w-100" src="{{ studio.image.url }}" loading="lazy">
             </a>
             {%if studio.is_it_premium == True %}
-                <div class="vip-studio bg-yellow shadow-lg">
+                <div class="studio-label bg-yellow shadow-lg">
                     <span>PREMIUM</span>
                 </div>
             {% elif studio.is_it_top == True %}
-                <div class="vip-studio bg-pink shadow-lg">
+                <div class="studio-label bg-pink shadow-lg">
                     <span>TOP</span>
                 </div>
             {% endif %}
@@ -26,17 +26,17 @@
                     {% endfor %}
                 </p>
             </a>
-            <div class="card-props">
+            <div class="studio-props">
                 {% for format in studio.format.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ format.icon }} me-1"></i><span>{{ format.name }}</span>
                     </div>
                 {% endfor %}
             </div>
             <hr>
-            <div class="card-props">
+            <div class="studio-props">
                 {% for gender in studio.gender.all %}
-                    <div class="card-prop bg-light-blue text-light">
+                    <div class="studio-prop bg-blue text-light">
                         <i class="{{ gender.icon }} me-1"></i><span>{{ gender.name }}</span>
                     </div>
                 {% endfor %}

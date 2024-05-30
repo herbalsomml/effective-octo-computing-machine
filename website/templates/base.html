@@ -17,10 +17,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Bootstrap CSS -->
   {% bootstrap_css %}
-  <!-- Main style -->
-  <link href="{% static 'assets/css/style.css' %}?1" rel="stylesheet">
+  <!-- Buttons Style -->
+  <link href="{% static 'assets/css/buttons.css' %}?1.2.0" rel="stylesheet">
+  <!-- Main Style -->
+  <link href="{% static 'assets/css/style.css' %}?1.2.0" rel="stylesheet">
+  <!-- Colors Style -->
+  <link href="{% static 'assets/css/colors.css' %}?1.2.0" rel="stylesheet">
 </head>
-<body class="bg-dark-3">
+<body class="bg-deep-dark">
 {% include "includes/header.html" %}
 {% block content %}{% endblock %}
 {% include "includes/description.html" %}

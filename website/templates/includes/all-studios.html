@@ -1,19 +1,19 @@
 <div class="album">
     <div class="container px-5">
-        <div class="row d-flex flex-wrap" id="studuios-box">
+        <div class="row d-flex flex-wrap text-center" id="studuios-box">
             <h1 class="text-center my-4 text-light font-weight-bold w-100">Лучшие вебкам-студии</h1>
             {% include "includes/studios-filter.html" %}
             {% if all_studios_list %}
-            {% for studio in all_studios_list %}
-            {% include "includes/studio-card.html" %}
-            {% endfor %}
+                {% for studio in all_studios_list %}
+                    {% include "includes/studio-card.html" %}
+                {% endfor %}
+                <a href="{% url 'main:studio_search' %}">
+                    <button type="submit" class="btn-custom round-it-60 text-light bg-purple">
+                        <i class="fa me-2 fa-chevron-circle-down"></i>Больше студий
+                    </button>
+                </a>
             {% else %}
             <h3 class="text-start my-4 text-light">Студии не найдены :(</h3>
-            <div class="text-center col-sm-12 col-md-12 col-lg-4 mt-2 mx-auto">
-                <a href="{% url 'main:studio_search' %}">
-                <button type="submit" class="btn-little-rounded text-light bg-dark-purple"><i class="fa me-2 fa-chevron-circle-down"></i>Посмотреть больше студий</i>
-                </button></a>
-            </div>
             {% endif %}
         </div>    </div>
 </div>

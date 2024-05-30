@@ -1,26 +1,26 @@
 <div class="col-12 mb-3 mt-5">
-    <div class="card bg-dark text-light round-it shadow-sm border-0">
+    <div class="card bg-light-dark text-light round-it-15 shadow-sm border-0">
         {% if studio.is_it_premium %}
-        <div class="vip-studio bg-yellow shadow-lg">
+        <div class="studio-label bg-yellow shadow-lg">
             <i class="fa me-1 fa-diamond"></i><span>PREMIUM</span>
         </div>
         {% elif studio.is_it_top %}
-        <div class="vip-studio bg-pink shadow-lg">
+        <div class="studio-label bg-pink shadow-lg">
             <span>TOP</span>
         </div>
         {% endif %}
         <div class="row no-gutters">
             <div class="col-12 col-md-5 col-lg-5 image-container">
-                <img alt="Suresh Dasari Card" class="card-img round-it" src="{{ studio.image.url }}">
+                <img alt="Studio Image" class="card-img round-it-15" src="{{ studio.image.url }}" loading="lazy">
             </div>
             <div class="col-12 col-md-7 col-lg-7">
                 <div class="card-body">
                     <h1 class="card-title text-light">Студия <span class="text-purple">{{ studio.name }}</span></h1>
                     <hr>
                     <h5 class="text-light">Города</h5>
-                    <div class="card-props">
+                    <div class="studio-props">
                         {% for city in studio.cities.all %}
-                        <div class="card-prop bg-light-blue text-light">
+                        <div class="studio-prop bg-blue text-light">
                             <i class="icon icon-house"></i><span>{{ city.name }}</span>
                         </div>{% endfor %}
                     </div>
