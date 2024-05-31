@@ -1,13 +1,13 @@
 <div class="col-lg-6 md-6 sm-12 d-flex align-items-stretch mb-3">
     <div class="card bg-light-dark w-100 round-it-15 border-yellow shadow-yellow">
-        <a href="{% url 'main:studio_detail' slug=studio.slug %}">
+        <a href="{% url 'ad:studio_view' slug=studio.slug %}">
             <img alt="Premium Studio Image" class="card-img-top img-cover-43 round-it-15" src="{{ studio.image.url }}" loading="lazy">
             <div class="card-body">
                 <div class="studio-label bg-yellow shadow-lg">
                     <i class="fa me-1 fa-diamond"></i><span>PREMIUM</span>
                 </div>
                 <h5 class="text-light">{{ studio.name|truncatechars:30 }}</h5>
-                <p class="small text-blue font-italic">
+                <p class="small text-green font-italic">
                     <i class="fa me-1 fa-map-marker"></i>
                     {% for city in studio.cities.all %}
                         {{ city.name }}{% if not forloop.last %}, {% endif %}
@@ -15,7 +15,7 @@
                 </p>
                 <div class="studio-props">
                     {% for format in studio.format.all %}
-                        <div class="studio-prop text-dark-2 bg-blue text-light">
+                        <div class="studio-prop text-dark-2 bg-green text-light">
                             <i class="{{ format.icon }} me-1"></i><span>{{ format.name }}</span>
                         </div>
                     {% endfor %}
@@ -23,7 +23,7 @@
                 <hr>
                 <div class="studio-props">
                     {% for gender in studio.gender.all %}
-                        <div class="studio-prop text-dark-2 bg-blue text-light">
+                        <div class="studio-prop text-dark-2 bg-green text-light">
                             <i class="{{ gender.icon }} me-1"></i><span>{{ gender.name }}</span>
                         </div>
                     {% endfor %}
@@ -31,12 +31,12 @@
                 <hr>
                 <div class="studio-props">
                     {% if studio.min_age and studio.max_age %}
-                        <div class="studio-prop text-dark-2 bg-blue text-light">
+                        <div class="studio-prop text-dark-2 bg-green text-light">
                             <i class="fa-solid fa-passport me-1"></i><span>от {{ studio.min_age }} до {{ studio.max_age }}</span>
                         </div>
                     {% endif %}
                     {% if studio.min_percent and studio.max_percent %}
-                        <div class="studio-prop text-dark-2 bg-blue text-light">
+                        <div class="studio-prop text-dark-2 bg-green text-light">
                             <i class="fa-solid fa-money-bill me-1"></i><span>от {{ studio.min_percent }}% до {{ studio.max_percent }}%</span>
                         </div>
                     {% endif %}
@@ -50,7 +50,7 @@
                     </button>
                 </a>
             {% endif %}
-            <a href="{% url 'main:studio_detail' slug=studio.slug %}">
+            <a href="{% url 'ad:studio_view' slug=studio.slug %}">
                 <button class="btn-custom round-it-15 text-light bg-deep-dark mt-2 w-100">
                     <i class="fa-solid fa-book-open-reader me-2"></i>Подробнее...
                 </button>

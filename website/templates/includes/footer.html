@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-6 my-md-2 mt-1 mb-3">
               <a href="{{ config.MANAGER_LINK }}" target="_blank">
-                <button class="btn-custom round-it-60 bg-blue w-75">Попасть в каталог
+                <button class="btn-custom round-it-60 bg-green w-75"><i class="fa-solid fa-plus me-2"></i>Попасть в каталог
                 </button>
               </a>
             </div>
@@ -20,7 +20,7 @@
       </section>
     </div>
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © {% now "Y" %} <a class="text-white" href="{% url 'main:index' %}">{{ config.SITE_NAME }}</a>
+      © {% now "Y" %} <a class="text-white" href="{% url 'ad:index' %}">{{ config.SITE_NAME }}</a>
     </div>
   </footer>
 </section>

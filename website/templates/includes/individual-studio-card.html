@@ -5,43 +5,88 @@
             <i class="fa me-1 fa-diamond"></i><span>PREMIUM</span>
         </div>
         {% elif studio.is_it_top %}
-        <div class="studio-label bg-pink shadow-lg">
+        <div class="studio-label bg-purple shadow-lg">
             <span>TOP</span>
         </div>
         {% endif %}
         <div class="row no-gutters">
-            <div class="col-12 col-md-5 col-lg-5 image-container">
+            <div class="col-12 col-lg-5 image-container">
                 <img alt="Studio Image" class="card-img round-it-15" src="{{ studio.image.url }}" loading="lazy">
             </div>
-            <div class="col-12 col-md-7 col-lg-7">
+            <div class="col-12 col-lg-7">
                 <div class="card-body">
                     <h1 class="card-title text-light">Студия <span class="text-purple">{{ studio.name }}</span></h1>
                     <hr>
                     <h5 class="text-light">Города</h5>
                     <div class="studio-props">
                         {% for city in studio.cities.all %}
-                        <div class="studio-prop bg-blue text-light">
+                        <div class="studio-prop bg-green text-light">
                             <i class="icon icon-house"></i><span>{{ city.name }}</span>
                         </div>{% endfor %}
                     </div>
                     <hr>
                     {% if studio.telegram %}
                     <a href="https://t.me/{{ studio.telegram }}" target="_blank">
-                        <button class="btn-custom round-it-15 bg-blue text-light"><i class="fa-brands fa-telegram me-1"></i>Telegram
+                        <button class="btn-custom round-it-15 bg-green text-light" id="telegram-button"><i class="fa-brands fa-telegram me-1"></i>Telegram
                         </button>
                     </a>
+                    <script>
+                        $(document).ready(function() {
+                            $('#telegram-button').on('click', function() {
+                                var slug = '{{ studio.slug }}'
+                                $.ajax({
+                                    url: "{% url 'ad_statistics:telegram_click' %}",
+                                    method: "POST",
+                                    data: {
+                                        'slug': slug,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                     {% endif %}
                     {% if studio.website %}
                     <a href="{{ studio.website }}" target="_blank">
-                        <button class="btn-custom round-it-15 bg-blue text-light no-right-padding"><i class="fa-solid fa-earth-europe me-1"></i>Веб-сайт
+                        <button class="btn-custom round-it-15 bg-green text-light no-right-padding" id="website-button"><i class="fa-solid fa-earth-europe me-1"></i>Веб-сайт
                         </button>
                     </a>
+                    <script>
+                        $(document).ready(function() {
+                            $('#website-button').on('click', function() {
+                                var slug = '{{ studio.slug }}'
+                                $.ajax({
+                                    url: "{% url 'ad_statistics:website_click' %}",
+                                    method: "POST",
+                                    data: {
+                                        'slug': slug,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                     {% endif %}
                     {% if studio.phone %}
                     <a href="tel:{{ studio.phone }}">
-                        <button class="btn-custom round-it-15 bg-blue mt-2 text-light"><i class="fa-solid fa-phone me-1"></i>+7 999 999 99 99
+                        <button class="btn-custom round-it-15 bg-green mt-2 text-light" id="phone-button"><i class="fa-solid fa-phone me-1"></i>{{ studio.phone }}
                         </button>
                     </a>
+                    <script>
+                        $(document).ready(function() {
+                            $('#phone-button').on('click', function() {
+                                var slug = '{{ studio.slug }}'
+                                $.ajax({
+                                    url: "{% url 'ad_statistics:phone_click' %}",
+                                    method: "POST",
+                                    data: {
+                                        'slug': slug,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                                    }
+                                });
+                            });
+                        });
+                    </script>
                     {% endif %}
                 </div>
             </div>

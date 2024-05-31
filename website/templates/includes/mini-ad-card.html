@@ -1,4 +1,4 @@
-<a href="{{ ad.link }}" target="_blank">
+<a href="{{ ad.link }}" target="_blank" id="mini-ad-{{ ad.id }}">
     <picture>
         <source media="(max-width: 576px)" srcset="{{ ad.small_image.url }}">
         <source media="(min-width: 577px) and (max-width: 768px)" srcset="{{ ad.medium_image.url }}">
@@ -6,3 +6,17 @@
         <img alt="Mini Ad" class="round-it-15 w-75" src="fallback.jpg" loading="lazy">
     </picture>
 </a>
+<script>
+    $(document).ready(function() {
+        $('#mini-ad-{{ ad.id }}').on('click', function() {
+            var id = '{{ ad.id }}'
+            $.ajax({
+                url: "{% url 'ad_statistics:miniad_click' %}",
+                method: "POST",
+                data: {
+                    'id': id,
+                }
+            });
+        });
+    });
+</script>

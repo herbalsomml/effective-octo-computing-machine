@@ -1,0 +1,73 @@
+/* 
+    Background Colors
+*/
+.bg-deep-dark {
+    background-color: #1A1A1A;
+}
+
+.bg-light-dark {
+    background-color: #2E2E2E;
+}
+
+.bg-pink {
+    background-color: #bf69a8;
+}
+
+.bg-purple {
+    background-color: #C71585;
+}
+
+.bg-dark-purple {
+    background-color: #6c5ce7;
+}
+
+.bg-blue {
+    background-color: #00BFFF;
+}
+
+.bg-green {
+    background-color: #3B5E58;
+}
+
+.bg-yellow {
+    background-color: #FFD700;
+}
+
+/*
+Border Colors
+*/
+.border-yellow {
+    border-width: 2px;
+    --bs-border-opacity: 1;
+    border-color: #FFD700;
+}
+
+.border-pink {
+    border-width: 2px;
+    --bs-border-opacity: 1;
+    border-color: #bf69a8;
+}
+
+.border-purple {
+    border-width: 2px;
+    --bs-border-opacity: 1;
+    border-color: #C71585;
+}
+
+/*
+Shadow Colors
+*/
+.shadow-yellow {
+    box-shadow: 0 .5rem 1rem rgb(253 203 110) !important;
+}
+
+/*
+Text Colors
+*/
+.text-purple {
+    color: #C71585;
+}
+
+.text-gray {
+    color: #b5bec5;
+}

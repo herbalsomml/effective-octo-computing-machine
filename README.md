@@ -1,5 +1,5 @@
 # Catalog of webcam studios
-## Version 1.0.2
+## Version 1.3.0
 
 Catalog of webcam studios with search, filtering and display priority
 

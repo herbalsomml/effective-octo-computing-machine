@@ -4,7 +4,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('', include('main.urls', namespace='main')),
+    path('', include('ad.urls', namespace='ad')),
+    path('stats/', include('ad_statistics.urls', namespace='ad_statistics')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

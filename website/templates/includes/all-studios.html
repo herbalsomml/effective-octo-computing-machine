@@ -7,7 +7,7 @@
                 {% for studio in all_studios_list %}
                     {% include "includes/studio-card.html" %}
                 {% endfor %}
-                <a href="{% url 'main:studio_search' %}">
+                <a href="{% url 'ad:studio_search' %}">
                     <button type="submit" class="btn-custom round-it-60 text-light bg-purple">
                         <i class="fa me-2 fa-chevron-circle-down"></i>Больше студий
                     </button>

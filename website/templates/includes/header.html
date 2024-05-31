@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-light-dark">
   <div class="container-fluid mx-5">
-    <a class="navbar-brand me-2" href="{% url 'main:index' %}">
+    <a class="navbar-brand me-2" href="{% url 'ad:index' %}">
       <img
         src="{% static 'assets/img/logo.png' %}"
         height="40"
@@ -19,7 +19,7 @@
           </button>
         </a>
         <a class="mt-3 mt-lg-0" href="{{ config.MANAGER_LINK }}" target="_blank">
-          <button class="btn-custom round-it-60 text-light bg-blue w-100">Попасть в каталог
+          <button class="btn-custom round-it-60 text-light bg-green w-100"><i class="fa-solid fa-plus me-2"></i>Попасть в каталог
           </button>
         </a>
       </div>
