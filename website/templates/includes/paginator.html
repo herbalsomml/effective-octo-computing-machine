@@ -14,7 +14,7 @@
         {% endfor %}
         {% if page_obj.has_next %}
         <li class="page-item">
-            <a class="page-link text-light" href="?page={{ page_obj.next_page_number }}{% if request.GET.cities %}{% for i in request.GET.cities %}&cities={{ i }}{% endfor %}}{% endif %}{% if request.GET.format %}{% for i in request.GET.format %}&format={{ i }}{% endfor %}{% endif %}{% if request.GET.experience %}{% for i in request.GET.experience %}&experience={{ i }}{% endfor %}{% endif %}{% if i request.GET.gender %}&gender={{ i }}{% endfor %}{% endif %}" aria-label="Next">
+            <a class="page-link text-light" href="?page={{ page_obj.next_page_number }}{% if request.GET.cities %}{% for i in request.GET.cities %}&cities={{ i }}{% endfor %}}{% endif %}{% if request.GET.format %}{% for i in request.GET.format %}&format={{ i }}{% endfor %}{% endif %}{% if request.GET.experience %}{% for i in request.GET.experience %}&experience={{ i }}{% endfor %}{% endif %}{% if request.GET.gender %}{% for i in request.GET.gender %}&gender={{ i }}{% endfor %}{% endif %}" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
