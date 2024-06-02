@@ -24,9 +24,9 @@
   <!-- Colors Style -->
   <link href="{% static 'assets/css/colors.css' %}?1.3.0" rel="stylesheet">
   <!-- Google Verification -->
-  <meta name="google-site-verification" content="Ojr3ri1mxv3ikN8vOIhDDBgSJTNlOOn8at0n-8-a6KY" />
+  <meta name="google-site-verification" content="{{ config.GOOGLE_SEARCH_VERIFICATION }}" />
   <!-- Yandex Verification-->
-  <meta name="yandex-verification" content="1ed2d22eb0b9ebd8" />
+  <meta name="yandex-verification" content="{{ config.YANDEX_SEARCH_VERIFICATION }}" />
 </head>
 <body class="bg-deep-dark">
 {% include "includes/header.html" %}
