@@ -34,7 +34,7 @@
             <div class="studio-props ms-3 me-3">
                 <div class="studio-prop bg-green text-light">
                     <i class="fa-solid fa-language me-1"></i>
-                    <span>{% if english == False %} Не требуется {% else %} Требуется {% endif %}</span>
+                    <span>{% if studio.english %} Требуется {% else %} Не требуется {% endif %}</span>
                 </div>
             </div>
             <hr>
@@ -66,7 +66,7 @@
             <h5 class="text-light ms-3 me-3">Наличие оператора</h5>
             <div class="studio-props ms-3 me-3 mb-3">
                 <div class="studio-prop bg-green text-light">
-                    {% if operator == True %}
+                    {% if studio.operator %}
                         <i class="fa-solid fa-life-ring me-1"></i><span>Есть</span>
                     {% else %}
                         <i class="fa-regular fa-circle-xmark me-1"></i><span>Отсутсвует</span>
