@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-{{ config.SITE_NAME }} | Вебкам-студия {{ studio.name }} | {% for city in studio.cities.all %}{{ city.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+Вебкам-студия {{ studio.name }} | {{ config.SITE_NAME }} | {% for city in studio.cities.all %}{{ city.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
 {% endblock %}
 {% block meta_desc %}{{ studio.name }} - {% for format in studio.format.all %}{{ format.name }}{% if not forloop.last %}, {% endif %}{% endfor %} вебкам студия в {% if studio.cities.all|length > 1 %}городах {% else %}городе {% endif %}{% for city in studio.cities.all %}{{ city.name }}{% if not forloop.last %}, {% endif %}{% endfor %}. Страница с отзывами моделей, общим описанием студии и контактами для связи{% endblock %}
 {% block content %}
