@@ -10,7 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = get_random_secret_key()
 
-DEBUG = os.getenv('DEBUG') == 'true'
+DEBUG = True
+
+#DEBUG = os.getenv('DEBUG') == 'true'
 
 CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', 'https://*.127.0.0.1:8000').split(' ')
 
