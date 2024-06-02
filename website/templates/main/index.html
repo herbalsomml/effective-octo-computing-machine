@@ -6,6 +6,13 @@
 Ищете идеальную вебкам-студию, которая поможет вам начать успешную карьеру модели? Вы попали по адресу! Наш сайт-каталог создан специально для того, чтобы вы могли легко найти и выбрать студию, которая соответствует вашим потребностям и ожиданиям.
 {% endblock %}
 
+{% block microdata %}
+ <div itemscope itemtype="https://schema.org/WebSite">
+    <meta itemprop="url" content="{{ request.scheme }}://{{ request.get_host }}"/>
+    <meta itemprop="name" content="MyCamHub - поиск лучших вебкам-студий"/>
+    <meta itemprop="alternateName" content="MyCamHub"/>
+ </div>
+{% endblock %}
 {% block content %}
 {% include "includes/premium-studios.html" %}
 {% include "includes/mini-ad.html" %}
