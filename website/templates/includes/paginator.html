@@ -4,17 +4,17 @@
         <ul class="pagination">
         {% if page_obj.has_previous %}
         <li class="page-item">
-            <a class="page-link text-light" href="?page={{ page_obj.previous_page_number }}{% if request.GET.cities %}&cities={{ request.GET.cities }}{% endif %}{% if request.GET.format %}&format={{ request.GET.format }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}{% if request.GET.gender %}&gender={{ request.GET.gender }}{% endif %}" aria-label="Previous">
+            <a class="page-link text-light" href="?page={{ page_obj.previous_page_number }}{% if request.GET.cities %}{% for i in request.GET.cities %}&cities={{ i }}{% endfor %}}{% endif %}{% if request.GET.format %}{% for i in request.GET.format %}&format={{ i }}{% endfor %}{% endif %}{% if request.GET.experience %}{% for i in request.GET.experience %}&experience={{ i }}{% endif %}{% if request.GET.gender %}{% if i request.GET.gender %}&gender={{ i }}{% endfor %}{% endif %}" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         {% endif %}
         {% for num_page in page_obj.paginator.page_range %}
-        <li class="page-item"><a class="page-link text-light" href="?page={{ num_page }}{% if request.GET.cities %}&cities={{ request.GET.cities }}{% endif %}{% if request.GET.format %}&format={{ request.GET.format }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}{% if request.GET.gender %}&gender={{ request.GET.gender }}{% endif %}">{{ num_page }}</a></li>
+        <li class="page-item"><a class="page-link text-light" href="?page={{ page_obj.previous_page_number }}{% if request.GET.cities %}{% for i in request.GET.cities %}&cities={{ i }}{% endfor %}}{% endif %}{% if request.GET.format %}{% for i in request.GET.format %}&format={{ i }}{% endfor %}{% endif %}{% if request.GET.experience %}{% for i in request.GET.experience %}&experience={{ i }}{% endif %}{% if request.GET.gender %}{% if i request.GET.gender %}&gender={{ i }}{% endfor %}{% endif %}>{{ num_page }}</a></li>
         {% endfor %}
         {% if page_obj.has_next %}
         <li class="page-item">
-            <a class="page-link text-light" href="?page={{ page_obj.next_page_number }}{% if request.GET.cities %}&cities={{ request.GET.cities }}{% endif %}{% if request.GET.format %}&format={{ request.GET.format }}{% endif %}{% if request.GET.experience %}&experience={{ request.GET.experience }}{% endif %}{% if request.GET.gender %}&gender={{ request.GET.gender }}{% endif %}" aria-label="Next">
+            <a class="page-link text-light" href="?page={{ page_obj.previous_page_number }}{% if request.GET.cities %}{% for i in request.GET.cities %}&cities={{ i }}{% endfor %}}{% endif %}{% if request.GET.format %}{% for i in request.GET.format %}&format={{ i }}{% endfor %}{% endif %}{% if request.GET.experience %}{% for i in request.GET.experience %}&experience={{ i }}{% endif %}{% if request.GET.gender %}{% if i request.GET.gender %}&gender={{ i }}{% endfor %}{% endif %}" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
