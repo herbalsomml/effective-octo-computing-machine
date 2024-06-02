@@ -120,6 +120,8 @@ CONSTANCE_CONFIG = {
     'SITE_NAME': ('Каталог студий Webcam Alice', 'Название сайта'),
     'CHAT_LINK': ('https://t.me/webcam_alice', 'Ссылка на чат'),
     'MANAGER_LINK': ('https://t.me/ihatemylifebutiluvmoney', 'Ссылка на менеджера'),
+    'GOOGLE_SEARCH_VERIFICATION': ('', 'Код для верификации Google Search'),
+    'YANDEX_SEARCH_VERIFICATION': ('', 'Код для верификации Yandex Search'),
 }
 
 JAZZMIN_SETTINGS = {
