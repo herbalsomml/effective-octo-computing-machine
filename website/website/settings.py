@@ -79,6 +79,13 @@ DATABASES = {
     }
 }
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   # }
+#}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -124,6 +131,8 @@ CONSTANCE_CONFIG = {
     'MANAGER_LINK': ('https://t.me/ihatemylifebutiluvmoney', 'Ссылка на менеджера'),
     'GOOGLE_SEARCH_VERIFICATION': ('', 'Код для верификации Google Search'),
     'YANDEX_SEARCH_VERIFICATION': ('', 'Код для верификации Yandex Search'),
+    'GOOGLE_ANALYTICS': ('', 'Код Google Analytics'),
+    'YANDEX_METRIKA': ('', 'Код для Яндекс.Метрики')
 }
 
 JAZZMIN_SETTINGS = {
