@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /stats/
+Disallow: /track-miniad-click/
+Disallow: /track-phone-click/
+Disallow: /track-website-click/
+Disallow: /track-telegram-click/
