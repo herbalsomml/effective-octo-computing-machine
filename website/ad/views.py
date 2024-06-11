@@ -102,10 +102,12 @@ class StudioSearchList(ListView):
     model = Studio
     template_name = 'main/search.html'
     context_object_name = 'studios'
-    paginate_by = 3
+    paginate_by = 12
 
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = Studio.objects.filter(
+            when_it_ends__gt=timezone.now()
+        )
         form = StudioSearchForm(self.request.GET)
         if form.is_valid():
             experiences = form.cleaned_data.get('experience')
@@ -121,19 +123,29 @@ class StudioSearchList(ListView):
             if gender:
                 queryset = queryset.filter(gender__in=gender)
 
-        queryset = queryset.annotate(
-            is_it_top_premium=Case(
-                When(is_it_premium=True, then=Value(1)),
-                When(is_it_top=True, then=Value(2)),
-                default=Value(3),
-                output_field=IntegerField(),
-            )
-        ).order_by('is_it_top_premium').distinct()
-
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        premium_studio_iist = self.get_queryset().filter(
+            is_it_premium=True
+        ).annotate(random_order=Random()).order_by('random_order')
+
+        top_studios_list = self.get_queryset().filter(
+            is_it_top=True,
+            is_it_premium=False
+        ).annotate(random_order=Random()).order_by('random_order')
+
+        usuall_studios_list = self.get_queryset().filter(
+            is_it_top=False,
+            is_it_premium=False
+        ).annotate(random_order=Random()).order_by('random_order')[:6]
+
+        studios_list = list(chain(premium_studio_iist, top_studios_list, usuall_studios_list))
+
+        context = super().get_context_data(**kwargs)
         context['form'] = StudioSearchForm(self.request.GET)
         context['config'] = config
+        context['studios_list'] = studios_list
         return context
