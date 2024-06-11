@@ -1,9 +1,13 @@
-<div class="col-lg-3 col-md-6 mt-3 mb-4 mb-lg-4 d-flex align-items-stretch">
-    <div class="card round-it-15 bg-light-dark w-100 {% if studio.is_it_premium %}shadow-yellow border-yellow{% elif studio.is_it_top %}shadow-lg  border-purple{% else %}shadow-sm border-0{% endif %}">
-        <div class="card-body p-4 text-start">
-            <a href="{% url 'ad:studio_view' slug=studio.slug %}">
-                <img alt="Studio Image" class="img-fluid img-cover-43 round-it-15 d-block mx-auto mb-3 w-100" src="{{ studio.image.url }}" loading="lazy">
-            </a>
+
+<div class="col-lg-3 col-md-6 col-sm-12 mt-3 mb-3">
+    <div class="card none-card-color round-it-15 {% if studio.is_it_premium %}shadow-yellow border-yellow{% elif studio.is_it_top %}shadow-lg  border-purple{% else %}shadow-sm border-0{% endif %}">
+        <a href="{% url 'ad:studio_view' slug=studio.slug %}">
+            <div class="studio-card-img round-it-top-15" style="background-image:url('{{ studio.image.url }}')">
+            <div class="qweqwe round-it-top-15" style="background-image:url('{{ studio.image.url }}')">
+            </div>
+            </div>
+        </a>
+        <div class="card-body bg-light-dark round-it-bottom-15 p-4 text-start">
             {%if studio.is_it_premium == True %}
                 <div class="studio-label bg-yellow shadow-lg">
                     <span>PREMIUM</span>
@@ -19,7 +23,7 @@
                 </a>
             </h5>
             <a href="{% url 'ad:studio_view' slug=studio.slug %}">
-                <p class="small text-primary font-italic">
+                <p class="small text-purple font-italic">
                     <i class="fa me-1 fa-map-marker"></i>
                     {% for city in studio.cities.all %}
                         {{ city.name }}{% if not forloop.last %},{% endif %}

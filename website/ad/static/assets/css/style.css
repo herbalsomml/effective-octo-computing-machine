@@ -67,6 +67,14 @@ hr {
     border-radius: 15px;
 }
 
+.round-it-top-15 {
+    border-radius: 15px 15px 0px 0px; 
+}
+
+.round-it-bottom-15 {
+    border-radius: 0px 0px 15px 15px; 
+}
+
 .round-it-30 {
     border-radius: 30px;
 }
@@ -104,6 +112,11 @@ hr {
     aspect-ratio: 4 / 3;
 }
 
+.img-cover-169 {
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+}
+
 .page-link {
     background-color: #C71585;
 }
@@ -115,4 +128,42 @@ hr {
 .border-fine {
     border-color: rgba(255,255,255,.55);
     border-style: solid;
+}
+
+.studio-card {
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.studio-card-img {
+    overflow: hidden;
+    position: relative;
+    min-height: 15rem;
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.qweqwe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.none-card-color {
+    --bs-card-bg: none !important;
+}
+
+.w-65 {
+    width: 65% !important;
+}
+
+.center-child {
+    margin: 0px auto;
 }
