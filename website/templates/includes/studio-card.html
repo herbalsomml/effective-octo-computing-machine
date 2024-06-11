@@ -1,6 +1,6 @@
 
-<div class="col-lg-3 col-md-6 col-sm-12 mt-3 mb-3">
-    <div class="card none-card-color round-it-15 {% if studio.is_it_premium %}shadow-yellow border-yellow{% elif studio.is_it_top %}shadow-lg  border-purple{% else %}shadow-sm border-0{% endif %}">
+<div class="col-lg-3 col-md-6 col-sm-12 mt-3 mb-3 d-flex align-items-stretch">
+    <div class="card none-card-color w-100 round-it-15 {% if studio.is_it_premium %}shadow-yellow border-yellow{% elif studio.is_it_top %}shadow-lg  border-purple{% else %}shadow-sm border-0{% endif %}">
         <a href="{% url 'ad:studio_view' slug=studio.slug %}">
             <div class="studio-card-img round-it-top-15" style="background-image:url('{{ studio.image.url }}')">
             <div class="qweqwe round-it-top-15" style="background-image:url('{{ studio.image.url }}')">
