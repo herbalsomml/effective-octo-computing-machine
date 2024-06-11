@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'ad_statistics',
     'constance',
     'constance.backends.database',
+    'mdeditor',
 ]
 
 MIDDLEWARE = [
@@ -79,12 +80,12 @@ DATABASES = {
     }
 }
 
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'django.db.backends.sqlite3',
-   #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-   # }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -171,3 +172,22 @@ STORAGES = {
 CLOUDFLARE_IMAGES_ACCOUNT_ID = os.getenv('CLOUDFLARE_IMAGES_ACCOUNT_ID')
 CLOUDFLARE_IMAGES_API_TOKEN = os.getenv('CLOUDFLARE_IMAGES_API_TOKEN')
 CLOUDFLARE_IMAGES_ACCOUNT_HASH = os.getenv('CLOUDFLARE_IMAGES_ACCOUNT_HASH')
+
+X_FRAME_OPTIONS = 'SAMEORIGIN' 
+
+MDEDITOR_CONFIGS = {
+    'default':{
+        'width': '100% ',  # Custom edit box width
+        'height': 500,  # Custom edit box height
+        'toolbar': ["undo", "redo", "|",
+                    "bold", "italic", "quote", "|",
+                    "h1", "h2", "h3", "h5", "h6", "|",
+                    "list-ul", "list-ol", "hr", "|",
+                    "link",
+                    "||", "preview", "watch", "fullscreen"],  # custom edit box toolbar 
+        'toolbar_autofixed': True,  # Whether the toolbar capitals
+        'search_replace': True,  # Whether to open the search for replacement
+        'watch': True,  # Live preview
+        'language': 'en'  # zh / en / es 
+    }
+}

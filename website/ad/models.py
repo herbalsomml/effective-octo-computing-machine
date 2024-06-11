@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from cloudflare_images.field import CloudflareImagesField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from mdeditor.fields import MDTextField
 from django.utils import timezone
 from parameters.models import (City, ExperienceChoices, FormatChoices,
                                GenderChoices, PayoutsChoices, ShiftsChoices)
@@ -27,7 +28,7 @@ class Studio(models.Model):
         verbose_name='Изображение',
     )
 
-    description = models.TextField(
+    description = MDTextField(
         verbose_name='Полное описание'
     )
 
