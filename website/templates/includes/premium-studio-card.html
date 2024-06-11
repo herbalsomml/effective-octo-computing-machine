@@ -2,7 +2,7 @@
 <div class="col-12 mt-3 mb-3">
     <div class="card none-card-color w-75 center-child round-it-15 {% if studio.is_it_premium %}shadow-yellow border-yellow{% elif studio.is_it_top %}shadow-lg  border-purple{% else %}shadow-sm border-0{% endif %}">
         <a href="{% url 'ad:studio_view' slug=studio.slug %}">
-            <img alt="Premium Studio Image" class="card-img-top img-cover-43 round-it-top-15" src="{{ studio.image.url }}" loading="lazy">
+            <img alt="{{ studio.name }} Premium Studio Image" class="card-img-top img-cover-43 round-it-top-15" src="{{ studio.image.url }}" loading="lazy">
         </a>
         <div class="card-body bg-light-dark round-it-bottom-15 p-4 text-start">
             {%if studio.is_it_premium == True %}
