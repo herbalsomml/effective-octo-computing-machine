@@ -12,6 +12,7 @@ django-cloudflare-images==0.6.0
 django-constance==3.1.0
 django-jazzmin==3.0.0
 django-mdeditor==0.1.20
+django-otp==1.5.0
 django-picklefield==3.2
 django-templated-mail==1.1.1
 djangorestframework==3.15.1
@@ -30,8 +31,10 @@ pillow==10.3.0
 psycopg2-binary==2.9.9
 pycparser==2.22
 PyJWT==2.8.0
+pypng==0.20220715.0
 python-dotenv==1.0.1
 python3-openid==3.2.0
+qrcode==7.4.2
 requests==2.32.3
 requests-oauthlib==2.0.0
 six==1.16.0
