@@ -102,7 +102,7 @@ class StudioSearchList(ListView):
     model = Studio
     template_name = 'main/search.html'
     context_object_name = 'studios'
-    paginate_by = 12
+    paginate_by = 4
 
     def get_queryset(self):
         queryset = Studio.objects.filter(
